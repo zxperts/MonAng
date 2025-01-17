@@ -1,0 +1,1 @@
+import{Ga as o,Ha as i,Na as l,Ua as p,X as n}from"./chunk-UPBV4BPD.js";var r=(()=>{class e{static{this.\u0275fac=function(t){return new(t||e)}}static{this.\u0275cmp=n({type:e,selectors:[["app-feuille-de-temps"]],standalone:!0,features:[p],decls:2,vars:0,template:function(t,m){t&1&&(o(0,"h1"),l(1,"Feuille de temps"),i())}})}}return e})();export{r as FeuilleDeTempsComponent};

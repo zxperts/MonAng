@@ -1,0 +1,1 @@
+import{Ga as o,Ha as i,Na as r,Ua as s,X as n}from"./chunk-UPBV4BPD.js";var m=(()=>{class e{static{this.\u0275fac=function(t){return new(t||e)}}static{this.\u0275cmp=n({type:e,selectors:[["app-services"]],standalone:!0,features:[s],decls:2,vars:0,template:function(t,c){t&1&&(o(0,"h1"),r(1,"Nos Services"),i())}})}}return e})();export{m as ServicesComponent};

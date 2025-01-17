@@ -1,0 +1,1 @@
+import{Ga as o,Ha as a,Na as i,Ua as c,X as n}from"./chunk-UPBV4BPD.js";var s=(()=>{class t{static{this.\u0275fac=function(e){return new(e||t)}}static{this.\u0275cmp=n({type:t,selectors:[["app-contact"]],standalone:!0,features:[c],decls:2,vars:0,template:function(e,p){e&1&&(o(0,"h1"),i(1,"Contact"),a())}})}}return t})();export{s as ContactComponent};

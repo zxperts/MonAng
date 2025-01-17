@@ -1,0 +1,1 @@
+import{Ga as n,Ha as a,Na as i,Ua as r,X as o}from"./chunk-UPBV4BPD.js";var u=(()=>{class e{static{this.\u0275fac=function(t){return new(t||e)}}static{this.\u0275cmp=o({type:e,selectors:[["app-about"]],standalone:!0,features:[r],decls:2,vars:0,template:function(t,s){t&1&&(n(0,"h1"),i(1,"\xC0 propos"),a())}})}}return e})();export{u as AboutComponent};
