@@ -1,0 +1,12 @@
+<header>
+  <nav>
+    <div class="brand">
+      <a routerLink="/home">VisualBudget</a>
+    </div>
+    <ul class="nav-links">
+      <li *ngFor="let item of menuItems">
+        <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
+      </li>
+    </ul>
+  </nav>
+</header> 

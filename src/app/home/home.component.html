@@ -1,0 +1,127 @@
+<section class="home-section">
+  <div class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1>Gestion de Finance Personnelle</h1>
+      <p class="subtitle">Visualisez et gérez vos finances en toute simplicité</p>
+    </div>
+  </div>
+  
+  <div class="content-wrapper">
+<!--     <div *ngIf="showAlert" class="alert">
+      <div class="alert-content">
+        <span class="info-icon">ℹ️</span>
+        <span>Importez des extraits en format .csv .pdf et visualiser vos dépenses.</span>
+        <button class="close-button" (click)="closeAlert()">×</button>
+      </div>
+    </div> -->
+
+    <div class="import-section" [class.compact]="hasLoadedData">
+      <h2>Importez vos données</h2>
+      <p class="import-description">Chargez vos relevés bancaires pour commencer l'analyse</p>
+      <label for="file-upload" class="import-button">
+        <i class="fas fa-upload"></i>
+        Importer des fichiers (.csv, .pdf)
+        <input 
+          type="file" 
+          id="file-upload" 
+          accept=".csv,.pdf" 
+          multiple
+          (change)="onFileSelected($event)"
+          class="file-input"
+        >
+      </label>
+    </div>
+
+    <div class="chart-section">
+      <!-- Alerte d'importation -->
+      <div *ngIf="showImportAlert" class="import-alert">
+        <div class="alert-content">
+          <i class="fas fa-info-circle"></i>
+          <span>Veuillez d'abord importer un fichier CSV ou PDF pour analyser vos données.</span>
+        </div>
+      </div>
+
+      <div class="filters-section">
+        <div class="filters-group">
+          <div class="amount-filter">
+            <label>Plage de montants (€):</label>
+            <div class="range-inputs">
+              <input 
+                type="number" 
+                [ngModel]="transformValue(currentMinAmount)" 
+                (ngModelChange)="currentMinAmount = inverseTransform($event)"
+                (change)="onAmountRangeChange()"
+                [min]="transformValue(minAmount)"
+                [max]="transformValue(maxAmount)"
+                step="500"
+              >
+              <div class="sliders-container">
+                <input 
+                  type="range" 
+                  [ngModel]="currentMinAmount" 
+                  (ngModelChange)="currentMinAmount = $event"
+                  (input)="onAmountRangeChange()"
+                  [min]="minAmount"
+                  [max]="maxAmount"
+                  step="100"
+                  class="range-slider min-slider"
+                >
+                <input 
+                  type="range" 
+                  [ngModel]="currentMaxAmount" 
+                  (ngModelChange)="currentMaxAmount = $event"
+                  (input)="onAmountRangeChange()"
+                  [min]="minAmount"
+                  [max]="maxAmount"
+                  step="100"
+                  class="range-slider max-slider"
+                >
+              </div>
+              <input 
+                type="number" 
+                [ngModel]="transformValue(currentMaxAmount)" 
+                (ngModelChange)="currentMaxAmount = inverseTransform($event)"
+                (change)="onAmountRangeChange()"
+                [min]="transformValue(minAmount)"
+                [max]="transformValue(maxAmount)"
+                step="100"
+              >
+            </div>
+          </div>
+          <div class="filters-column">
+            <div class="periodicity-filter">
+              <label>Périodicité:</label>
+              <select [(ngModel)]="selectedPeriodicity" (change)="onPeriodicityChange()">
+                <option value="annual">Annuel</option>
+                <option value="monthly">Mensuel</option>
+                <option value="weekly">Hebdomadaire</option>
+              </select>
+            </div>
+            <div class="category-filter">
+              <label>Filtrer les catégories:</label>
+              <input 
+                type="text" 
+                placeholder="Rechercher..." 
+                [(ngModel)]="categoryFilter"
+                (input)="filterCategories()"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-header">
+        <div class="chart-title">
+          <h2>Aperçu de vos dépenses</h2>
+        </div>
+        <button class="toggle-button" (click)="toggleCustomCategories()">
+          {{ showCustomCategories ? 'Afficher uniquement les catégories principales' : 'Afficher toutes les catégories' }}
+        </button>
+      </div>
+      <div class="chart-container">
+        <canvas id="stackedChart"></canvas>
+      </div>
+    </div>
+  </div>
+</section> 
